@@ -1,0 +1,28 @@
+ --1-task
+--[BULK INSERT] da tashqi fayldan katta hajmdagi ma’lumotlarni jadvalga tez va samarali yuklash uchun ishlatiladigan buyruqdir.
+--1-MAQSADI KOTTA FAYLLRNI QO'LDA BIRMA BIR KIRITMASDAN BITTADA HAMMASINI VA MILLIONLAB MALUMOTLARNI IMPORT QILISH IMKONINI BERADI.
+--2-Maqsadi kotta hajmdagi va millionlab satrlarni va malumotlarni tezda yuklash imkonini beradi
+--2-task 
+--CSV (Comma-Separated Values) – ma’lumotlar vergul bilan ajratilgan bo‘ladi,
+--(Text fayli) – matn fayllari, odatda maxsus ajratkich (masalan, ; yoki |) ishlatiladi.
+--XML (eXtensible Markup Language) – tuzilgan (structured) ma’lumotlarni import qilish uchun ishlatiladi.
+--JSON (JavaScript Object Notation) – zamonaviy tuzilgan ma’lumotlarni yuklashda keng qo‘llaniladi.
+--3-task
+--create table products (productid int,productname varchar(50),prise decimal(10,2))
+--4-task
+--insert into products values (1,'laptop',9.3),(2,'pen',2.5),(3,'book',4.1)
+--5-task
+--[null]bilan[not null]ning farqi Null hech narsa yoq degani yani hech qanday malumot belgilanmagan ustunni topmoqchi bulinsa null yoziladi 
+--va agar malumot kirgazish shart qilinishi kere bulsa not null yoziladi
+--6-task
+--ALTER TABLE Products
+--ADD CONSTRAINT UQ_ProductName UNIQUE (ProductName);
+--SELECT * FROM Products;
+--alter table products
+--add categoryid int
+--CREATE TABLE Categories (
+--  CategoryID INT PRIMARY KEY,
+--  CategoryName VARCHAR(50) UNIQUE);
+--IDENTITY — bu SQL Server’da ustunni avtomatik raqam beruvchi qilib belgilash uchun ishlatiladigan xususiyat.
+
+
