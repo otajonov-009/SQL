@@ -1,8 +1,4 @@
--- ============================
--- Homework 03 SQL Script
--- ============================
-
--- 🟢 Easy-Level Tasks
+--Easy-Level Tasks
 
 -- 1. Define BULK INSERT (Explanation as comment)
 -- BULK INSERT is used to import large amounts of data from a file into a table.
@@ -47,7 +43,7 @@ CREATE TABLE Categories (
 -- IDENTITY automatically generates incremental values for a column.
 
 
--- 🟠 Medium-Level Tasks
+--Medium-Level Tasks
 
 -- 1. BULK INSERT from file
 BULK INSERT Products
@@ -82,7 +78,7 @@ FROM Products;
 -- A FOREIGN KEY enforces referential integrity between tables.
 
 
--- 🔴 Hard-Level Tasks
+--Hard-Level Tasks
 
 -- 1. Customers table with CHECK (Age >= 18)
 CREATE TABLE Customers (
