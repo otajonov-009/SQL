@@ -1,7 +1,7 @@
 
 =======================
-Question №1: Define the following terms: data, database, relational database, and table.
-Answer №1:
+Question В№1: Define the following terms: data, database, relational database, and table.
+Answer В№1:
 
 Data is raw, unprocessed facts or information, which can be in various forms like numbers, text, images, etc.
 
@@ -13,8 +13,8 @@ Table is a structured set of data organized in rows and columns within a databas
 
 ===========================================================================================================================================
 
-Question №2: List five key features of SQL Server.
-Answer №2:
+Question В№2: List five key features of SQL Server.
+Answer В№2:
 
 01. Relational Database Management System (RDBMS): SQL Server organizes data into tables with relationships, supporting complex queries using SQL.
 
@@ -29,8 +29,8 @@ Answer №2:
 
 ======================================================================================================================================================
 
-Question №3: What are the different authentication modes available when connecting to SQL Server? (Give at least 2)
-Answer №3:
+Question В№3: What are the different authentication modes available when connecting to SQL Server? (Give at least 2)
+Answer В№3:
 
 Here are the two main authentication modes in SQL Server:
 
@@ -38,20 +38,20 @@ Here are the two main authentication modes in SQL Server:
 Uses the Windows user account credentials to connect to SQL Server. It relies on Active Directory for authentication and is considered more secure because it integrates with Windows security features.
 
 02. SQL Server Authentication:
-Uses a username and password created and managed within SQL Server itself. This mode is useful when users don’t have Windows accounts or when connecting from non-Windows systems.
+Uses a username and password created and managed within SQL Server itself. This mode is useful when users donвЂ™t have Windows accounts or when connecting from non-Windows systems.
 
 ======================================================================================================================================================
 
-Question №4: Create a new database in SSMS named SchoolDB.
-Answer №4: Code here:
+Question В№4: Create a new database in SSMS named SchoolDB.
+Answer В№4: Code here:
 
 Create database SchoolDB
 use SchoolDB
 
 ==================================================================
 
-Question №5 : Write and execute a query to create a table called Students with columns: StudentID (INT, PRIMARY KEY), Name (VARCHAR(50)), Age (INT).
-Answer №5: Code here:
+Question В№5 : Write and execute a query to create a table called Students with columns: StudentID (INT, PRIMARY KEY), Name (VARCHAR(50)), Age (INT).
+Answer В№5: Code here:
 drop table students
 CREATE TABLE Students (StudentID INT primary key , Name VARCHAR(50), Age int);
 select * from students
@@ -60,8 +60,8 @@ insert into students values (1, 'Ahmad', 15)
 
 ==================================================================
 
---Question №6 : Describe the differences between SQL Server, SSMS, and SQL.
---Answer №6: 
+--Question В№6 : Describe the differences between SQL Server, SSMS, and SQL.
+--Answer В№6: 
 
 
 1. SQL Server
@@ -78,8 +78,8 @@ insert into students values (1, 'Ahmad', 15)
 
 ======================================================================================================================================================
 
---Question №7: Research and explain the different SQL commands: DQL, DML, DDL, DCL, TCL with examples.
---Answer №7: 
+--Question В№7: Research and explain the different SQL commands: DQL, DML, DDL, DCL, TCL with examples.
+--Answer В№7: 
 
 1. DQL (Data Query Language)
  What it does: Gets data from a table.
@@ -89,8 +89,8 @@ insert into students values (1, 'Ahmad', 15)
  Example:
 
 sql
-Копировать
-Редактировать
+ГЉГ®ГЇГЁГ°Г®ГўГ ГІГј
+ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј
 SELECT * FROM Students;
  Show me everything from the Students table.
 
@@ -99,17 +99,17 @@ What it does: Changes data in the table (add, edit, delete).
 
  Commands:
 
-INSERT – Add new data
+INSERT вЂ“ Add new data
 
-UPDATE – Change existing data
+UPDATE вЂ“ Change existing data
 
-DELETE – Remove data
+DELETE вЂ“ Remove data
 
  Examples:
 
 sql
-Копировать
-Редактировать
+ГЉГ®ГЇГЁГ°Г®ГўГ ГІГј
+ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј
 INSERT INTO Students (name) VALUES ('John');
 UPDATE Students SET name = 'Johnny' WHERE name = 'John';
 DELETE FROM Students WHERE name = 'Johnny';
@@ -118,17 +118,17 @@ DELETE FROM Students WHERE name = 'Johnny';
 
  Commands:
 
-CREATE – Make a new table
+CREATE вЂ“ Make a new table
 
-ALTER – Change a table
+ALTER вЂ“ Change a table
 
-DROP – Delete a table
+DROP вЂ“ Delete a table
 
  Examples:
 
 sql
-Копировать
-Редактировать
+ГЉГ®ГЇГЁГ°Г®ГўГ ГІГј
+ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј
 CREATE TABLE Students (id INT, name TEXT);
 ALTER TABLE Students ADD age INT;
 DROP TABLE Students;
@@ -137,15 +137,15 @@ What it does: Gives or removes access to data.
 
 Commands:
 
-GRANT – Give permission
+GRANT вЂ“ Give permission
 
-REVOKE – Take permission away
+REVOKE вЂ“ Take permission away
 
  Examples:
 
 sql
-Копировать
-Редактировать
+ГЉГ®ГЇГЁГ°Г®ГўГ ГІГј
+ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј
 GRANT SELECT ON Students TO user1;
 REVOKE SELECT ON Students FROM user1;
 5. TCL (Transaction Control Language)
@@ -153,17 +153,17 @@ REVOKE SELECT ON Students FROM user1;
 
  Commands:
 
-COMMIT – Save changes
+COMMIT вЂ“ Save changes
 
-ROLLBACK – Undo changes
+ROLLBACK вЂ“ Undo changes
 
-SAVEPOINT – Set a point to roll back to
+SAVEPOINT вЂ“ Set a point to roll back to
 
  Examples:
 
 sql
-Копировать
-Редактировать
+ГЉГ®ГЇГЁГ°Г®ГўГ ГІГј
+ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј
 BEGIN;
 DELETE FROM Students WHERE id = 1;
 ROLLBACK;  -- undoes the delete
@@ -177,8 +177,8 @@ TCL	Control transactions	COMMIT, ROLLBACK
 
 ======================================================================================================================================================
 
---Question №8: Write a query to insert three records into the Students table.
---Answer №8: 
+--Question В№8: Write a query to insert three records into the Students table.
+--Answer В№8: 
 
 CREATE TABLE Students (StudentID INT primary key , Name VARCHAR(50), Age int);
 select * from students
@@ -188,6 +188,6 @@ insert into students values (1, 'Ahmad', 15)
 
 ======================================================================================================================================================
 
---Question №9: Create a new database in SSMS named SchoolDB.
---Answer №9: Code here:
+--Question В№9: Create a new database in SSMS named SchoolDB.
+--Answer В№9: Code here:
 
