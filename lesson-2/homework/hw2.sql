@@ -5,7 +5,7 @@ CREATE TABLE Employees (
     Salary DECIMAL(10,2)
 );
 
--- 2. Uchta yozuv qo‘shish
+-- 2. Uchta yozuv qoâ€˜shish
 INSERT INTO Employees (EmpID, Name, Salary)
 VALUES (1, 'Ali', 5000);
 
@@ -17,29 +17,29 @@ VALUES
 (3, 'Hasan', 4500),
 (4, 'Husan', 5500);
 
--- 3. EmpID = 1 bo‘lgan xodimning oyligini 7000 ga o‘zgartirish
+-- 3. EmpID = 1 boâ€˜lgan xodimning oyligini 7000 ga oâ€˜zgartirish
 UPDATE Employees
 SET Salary = 7000
 WHERE EmpID = 1;
 
--- 4. EmpID = 2 bo‘lgan xodimni o‘chirish
+-- 4. EmpID = 2 boâ€˜lgan xodimni oâ€˜chirish
 DELETE FROM Employees
 WHERE EmpID = 2;
 
 -- 5. DELETE, TRUNCATE, DROP farqi
--- DELETE: Jadvaldan tanlangan ma’lumotlarni o‘chiradi (ROLLBACK qilish mumkin).
--- TRUNCATE: Jadvaldagi barcha ma’lumotlarni o‘chiradi, lekin tuzilma qoladi (ROLLBACK qilish mumkin emas).
--- DROP: Butun jadvalni o‘chiradi (strukturasi ham o'chib ketadi).
+-- DELETE: Jadvaldan tanlangan maâ€™lumotlarni oâ€˜chiradi (ROLLBACK qilish mumkin).
+-- TRUNCATE: Jadvaldagi barcha maâ€™lumotlarni oâ€˜chiradi, lekin tuzilma qoladi (ROLLBACK qilish mumkin emas).
+-- DROP: Butun jadvalni oâ€˜chiradi (strukturasi ham o'chib ketadi).
 
--- 6. Name ustunini VARCHAR(100) ga o‘zgartirish
+-- 6. Name ustunini VARCHAR(100) ga oâ€˜zgartirish
 ALTER TABLE Employees
 ALTER COLUMN Name VARCHAR(100);
 
--- 7. Department ustunini qo‘shish
+-- 7. Department ustunini qoâ€˜shish
 ALTER TABLE Employees
 ADD Department VARCHAR(50);
 
--- 8. Salary ustunini FLOAT ga o‘zgartirish
+-- 8. Salary ustunini FLOAT ga oâ€˜zgartirish
 ALTER TABLE Employees
 ALTER COLUMN Salary FLOAT;
 
@@ -49,9 +49,9 @@ CREATE TABLE Departments (
     DepartmentName VARCHAR(50)
 );
 
--- 10. Employees jadvalidan barcha ma’lumotlarni o‘chirish (strukturasi saqlanadi)
+-- 10. Employees jadvalidan barcha maâ€™lumotlarni oâ€˜chirish (strukturasi saqlanadi)
 TRUNCATE TABLE Employees;
--- 11. Departments jadvaliga 5 ta yozuv qo‘shish (INSERT INTO SELECT)
+-- 11. Departments jadvaliga 5 ta yozuv qoâ€˜shish (INSERT INTO SELECT)
 INSERT INTO Departments (DepartmentID, DepartmentName)
 SELECT 1, 'HR' UNION ALL
 SELECT 2, 'IT' UNION ALL
@@ -59,22 +59,22 @@ SELECT 3, 'Finance' UNION ALL
 SELECT 4, 'Marketing' UNION ALL
 SELECT 5, 'Management';
 
--- 12. Salary > 5000 bo‘lgan xodimlarga Department = 'Management' qilish
+-- 12. Salary > 5000 boâ€˜lgan xodimlarga Department = 'Management' qilish
 UPDATE Employees
 SET Department = 'Management'
 WHERE Salary > 5000;
 
--- 13. Employees jadvalidan barcha xodimlarni o‘chirish (strukturasi saqlanadi)
+-- 13. Employees jadvalidan barcha xodimlarni oâ€˜chirish (strukturasi saqlanadi)
 TRUNCATE TABLE Employees;
 
--- 14. Employees jadvalidan Department ustunini o‘chirish
+-- 14. Employees jadvalidan Department ustunini oâ€˜chirish
 ALTER TABLE Employees
 DROP COLUMN Department;
 
 -- 15. Employees jadvalini StaffMembers deb nomlash
 EXEC sp_rename 'Employees', 'StaffMembers';
 
--- 16. Departments jadvalini butunlay o‘chirish
+-- 16. Departments jadvalini butunlay oâ€˜chirish
 DROP TABLE Departments;
 -- 17. Products jadvalini yaratish
 CREATE TABLE Products (
@@ -85,18 +85,18 @@ CREATE TABLE Products (
     Description VARCHAR(200)
 );
 
--- 18. Price > 0 CHECK constraint qo‘shish
+-- 18. Price > 0 CHECK constraint qoâ€˜shish
 ALTER TABLE Products
 ADD CONSTRAINT CHK_Price CHECK (Price > 0);
 
--- 19. StockQuantity ustuni DEFAULT 50 bilan qo‘shish
+-- 19. StockQuantity ustuni DEFAULT 50 bilan qoâ€˜shish
 ALTER TABLE Products
 ADD StockQuantity INT DEFAULT 50;
 
 -- 20. Category ustunini ProductCategory deb nomlash
 EXEC sp_rename 'Products.Category', 'ProductCategory', 'COLUMN';
 
--- 21. Products jadvaliga 5 ta yozuv qo‘shish
+-- 21. Products jadvaliga 5 ta yozuv qoâ€˜shish
 INSERT INTO Products (ProductID, ProductName, ProductCategory, Price, Description)
 VALUES
 (1, 'Laptop', 'Electronics', 1200.50, 'Business Laptop'),
@@ -112,10 +112,10 @@ FROM Products;
 -- 23. Products jadvalini Inventory deb nomlash
 EXEC sp_rename 'Products', 'Inventory';
 
--- 24. Inventory jadvalidagi Price ustunini FLOAT ga o‘zgartirish
+-- 24. Inventory jadvalidagi Price ustunini FLOAT ga oâ€˜zgartirish
 ALTER TABLE Inventory
 ALTER COLUMN Price FLOAT;
 
--- 25. ProductCode IDENTITY ustunini qo‘shish (1000 dan boshlanadi, 5 ga oshib boradi)
+-- 25. ProductCode IDENTITY ustunini qoâ€˜shish (1000 dan boshlanadi, 5 ga oshib boradi)
 ALTER TABLE Inventory
 ADD ProductCode INT IDENTITY(1000,5);
