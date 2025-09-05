@@ -1,4 +1,4 @@
--- ✅ Easy-Level Tasks (10)
+-- Easy-Level Tasks 
 
 -- 1. Select top 5 employees
 SELECT TOP (5) * 
@@ -49,7 +49,7 @@ FROM Products
 ORDER BY ProductName DESC;
 
 
--- 🟠 Medium-Level Tasks (10)
+-- Medium-Level Tasks 
 
 -- 1. Top 10 products ordered by Price DESC
 SELECT TOP (10) * 
@@ -99,7 +99,7 @@ FROM Customers
 ORDER BY City ASC, PostalCode DESC;
 
 
--- 🔴 Hard-Level Tasks
+-- Hard-Level Tasks
 
 -- 1. Top 5 products with highest sales
 SELECT TOP (5) p.ProductName, SUM(s.SaleAmount) AS TotalSales
