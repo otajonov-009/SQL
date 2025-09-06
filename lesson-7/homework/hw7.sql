@@ -1,6 +1,6 @@
 -- Lesson 7: Homework Solutions
 
--- Easy Level Tasks (1-10)
+-- Easy Level Tasks
 
 -- 1. Write a query to select the top 5 employees from the Employees table.
 SELECT TOP 5 * FROM Employees;
@@ -33,7 +33,7 @@ SELECT * FROM Customers WHERE City = 'Tashkent';
 SELECT * FROM Employees WHERE DepartmentID IN (1,2,3);
 
 
--- Medium Level Tasks (11-19)
+-- Medium Level Tasks 
 
 -- 11. Write a query that finds the total number of employees in the Employees table.
 SELECT COUNT(*) AS TotalEmployees FROM Employees;
@@ -69,7 +69,7 @@ FROM Customers c
 LEFT JOIN Orders o ON c.CustomerID = o.CustomerID;
 
 
--- Hard Level Tasks (20-26)
+-- Hard Level Tasks 
 
 -- 20. Write a query to find the top 3 highest paid employees.
 SELECT TOP 3 * FROM Employees ORDER BY Salary DESC;
