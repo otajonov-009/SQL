@@ -1,10 +1,4 @@
--- Lesson 5: Aliases, Unions, and Conditional Columns (Solutions)
--- SQL Server
-
--------------------------------------------------
 -- Easy-Level Tasks
--------------------------------------------------
-
 -- 1. Alias for column
 SELECT ProductName AS Name
 FROM Products;
@@ -42,9 +36,7 @@ SELECT ProductName,
        IIF(StockQuantity > 100, 'Yes', 'No') AS InStockOver100
 FROM Products_Discounted;
 
--------------------------------------------------
 -- Medium-Level Tasks
--------------------------------------------------
 
 -- 8. UNION (again, explicit version)
 SELECT ProductName FROM Products
@@ -72,9 +64,7 @@ UPDATE Employees
 SET Salary = Salary * 1.10
 WHERE DepartmentName = 'HR' OR EmployeeID = 5;
 
--------------------------------------------------
 -- Hard-Level Tasks
--------------------------------------------------
 
 -- 13. CASE (Sales Tiers)
 SELECT SaleID, CustomerID, SaleAmount,
