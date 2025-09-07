@@ -1,105 +1,128 @@
--- Lesson 7: Homework Solutions
+-- Beginner-Level Tasks
 
--- Easy Level Tasks
+-- 1. Minimum price of a product
+SELECT MIN(Price) AS MinPrice FROM Products;
 
--- 1. Write a query to select the top 5 employees from the Employees table.
-SELECT TOP 5 * FROM Employees;
-
--- 2. Use SELECT DISTINCT to select unique Category values from the Products table.
-SELECT DISTINCT Category FROM Products;
-
--- 3. Write a query that filters the Products table to show products with Price > 100.
-SELECT * FROM Products WHERE Price > 100;
-
--- 4. Write a query to select all Customers whose FirstName start with 'A' using the LIKE operator.
-SELECT * FROM Customers WHERE FirstName LIKE 'A%';
-
--- 5. Order the results of a Products table by Price in ascending order.
-SELECT * FROM Products ORDER BY Price ASC;
-
--- 6. Write a query that uses the WHERE clause to filter for employees with Salary >= 50000.
-SELECT * FROM Employees WHERE Salary >= 50000;
-
--- 7. Select all columns from the Orders table where Quantity is greater than 10.
-SELECT * FROM Orders WHERE Quantity > 10;
-
--- 8. Write a query to select the ProductName and Price from Products where Price is between 50 and 200.
-SELECT ProductName, Price FROM Products WHERE Price BETWEEN 50 AND 200;
-
--- 9. Write a query that returns all Customers from 'Tashkent' city.
-SELECT * FROM Customers WHERE City = 'Tashkent';
-
--- 10. Use the IN operator to select employees from Departments 1, 2, and 3.
-SELECT * FROM Employees WHERE DepartmentID IN (1,2,3);
-
-
--- Medium Level Tasks 
-
--- 11. Write a query that finds the total number of employees in the Employees table.
-SELECT COUNT(*) AS TotalEmployees FROM Employees;
-
--- 12. Write a query that calculates the average Price of products in the Products table.
-SELECT AVG(Price) AS AvgPrice FROM Products;
-
--- 13. Write a query that finds the maximum Salary from Employees.
+-- 2. Maximum salary
 SELECT MAX(Salary) AS MaxSalary FROM Employees;
 
--- 14. Write a query that finds the minimum Quantity from Orders.
-SELECT MIN(Quantity) AS MinQuantity FROM Orders;
+-- 3. Count rows in Customers
+SELECT COUNT(*) AS TotalCustomers FROM Customers;
 
--- 15. Write a query to group Customers by City.
-SELECT City, COUNT(*) AS TotalCustomers FROM Customers GROUP BY City;
+-- 4. Count unique product categories
+SELECT COUNT(DISTINCT Category) AS UniqueCategories FROM Products;
 
--- 16. Write a query that joins Orders and Products tables on ProductID.
-SELECT o.OrderID, p.ProductName, o.Quantity
-FROM Orders o
-JOIN Products p ON o.ProductID = p.ProductID;
+-- 5. Total sales for product with ID 7
+SELECT SUM(SaleAmount) AS TotalSalesForProduct7
+FROM Sales
+WHERE ProductID = 7;
 
--- 17. Write a query to find employees whose Salary is greater than the average Salary.
-SELECT * FROM Employees WHERE Salary > (SELECT AVG(Salary) FROM Employees);
+-- 6. Average age of employees
+SELECT AVG(Age) AS AvgAge FROM Employees;
 
--- 18. Write a query that returns Customers and their Orders using INNER JOIN.
-SELECT c.CustomerID, c.FirstName, c.LastName, o.OrderID, o.OrderDate
-FROM Customers c
-INNER JOIN Orders o ON c.CustomerID = o.CustomerID;
-
--- 19. Write a query that returns all Customers and their Orders using LEFT JOIN.
-SELECT c.CustomerID, c.FirstName, c.LastName, o.OrderID, o.OrderDate
-FROM Customers c
-LEFT JOIN Orders o ON c.CustomerID = o.CustomerID;
-
-
--- Hard Level Tasks 
-
--- 20. Write a query to find the top 3 highest paid employees.
-SELECT TOP 3 * FROM Employees ORDER BY Salary DESC;
-
--- 21. Write a query that finds the total sales amount (Quantity * Price) for each Product.
-SELECT p.ProductID, p.ProductName, SUM(o.Quantity * p.Price) AS TotalSales
-FROM Orders o
-JOIN Products p ON o.ProductID = p.ProductID
-GROUP BY p.ProductID, p.ProductName;
-
--- 22. Write a query that returns Customers who have not placed any Orders.
-SELECT * FROM Customers
-WHERE CustomerID NOT IN (SELECT CustomerID FROM Orders);
-
--- 23. Write a query that returns the second highest Salary from Employees.
-SELECT MAX(Salary) AS SecondHighestSalary
+-- 7. Count of employees in each department
+SELECT DepartmentName, COUNT(*) AS EmployeeCount
 FROM Employees
-WHERE Salary < (SELECT MAX(Salary) FROM Employees);
+GROUP BY DepartmentName;
 
--- 24. Write a query to update all Employees in DepartmentID = 2 with a 10% Salary increase.
-UPDATE Employees
-SET Salary = Salary * 1.1
-WHERE DepartmentID = 2;
+-- 8. Min and max price of products grouped by category
+SELECT Category, MIN(Price) AS MinPrice, MAX(Price) AS MaxPrice
+FROM Products
+GROUP BY Category;
 
--- 25. Write a query to delete Orders where Quantity = 0.
-DELETE FROM Orders WHERE Quantity = 0;
+-- 9. Total sales per customer
+SELECT CustomerID, SUM(SaleAmount) AS TotalSales
+FROM Sales
+GROUP BY CustomerID;
 
--- 26. Create a view that shows CustomerName, ProductName, and Quantity from Customers, Orders, and Products tables.
-CREATE VIEW CustomerOrdersView AS
-SELECT c.FirstName + ' ' + c.LastName AS CustomerName, p.ProductName, o.Quantity
-FROM Customers c
-JOIN Orders o ON c.CustomerID = o.CustomerID
-JOIN Products p ON o.ProductID = p.ProductID;
+-- 10. Departments with more than 5 employees
+SELECT DepartmentName, COUNT(*) AS EmployeeCount
+FROM Employees
+GROUP BY DepartmentName
+HAVING COUNT(*) > 5;
+
+-- Medium-Level Tasks
+
+-- 1. Total and average sales per product category
+SELECT p.Category, SUM(s.SaleAmount) AS TotalSales, AVG(s.SaleAmount) AS AvgSales
+FROM Sales s
+JOIN Products p ON s.ProductID = p.ProductID
+GROUP BY p.Category;
+
+-- 2. Count employees in HR
+SELECT COUNT(*) AS HREmployees
+FROM Employees
+WHERE DepartmentName = 'HR';
+
+-- 3. Highest and lowest salary by department
+SELECT DepartmentName, MAX(Salary) AS MaxSalary, MIN(Salary) AS MinSalary
+FROM Employees
+GROUP BY DepartmentName;
+
+-- 4. Average salary per department
+SELECT DepartmentName, AVG(Salary) AS AvgSalary
+FROM Employees
+GROUP BY DepartmentName;
+
+-- 5. AVG salary and count of employees per department
+SELECT DepartmentName, AVG(Salary) AS AvgSalary, COUNT(*) AS EmployeeCount
+FROM Employees
+GROUP BY DepartmentName;
+
+-- 6. Product categories with average price > 400
+SELECT Category, AVG(Price) AS AvgPrice
+FROM Products
+GROUP BY Category
+HAVING AVG(Price) > 400;
+
+-- 7. Total sales per year
+SELECT YEAR(SaleDate) AS SaleYear, SUM(SaleAmount) AS TotalSales
+FROM Sales
+GROUP BY YEAR(SaleDate);
+
+-- 8. Customers with at least 3 orders
+SELECT CustomerID, COUNT(*) AS OrderCount
+FROM Orders
+GROUP BY CustomerID
+HAVING COUNT(*) >= 3;
+
+-- 9. Departments with avg salary > 60000
+SELECT DepartmentName, AVG(Salary) AS AvgSalary
+FROM Employees
+GROUP BY DepartmentName
+HAVING AVG(Salary) > 60000;
+
+-- Hard-Level Tasks
+
+-- 1. Average price per category > 150
+SELECT Category, AVG(Price) AS AvgPrice
+FROM Products
+GROUP BY Category
+HAVING AVG(Price) > 150;
+
+-- 2. Total sales per customer > 1500
+SELECT CustomerID, SUM(SaleAmount) AS TotalSales
+FROM Sales
+GROUP BY CustomerID
+HAVING SUM(SaleAmount) > 1500;
+
+-- 3. Total and average salary per department, avg salary > 65000
+SELECT DepartmentName, SUM(Salary) AS TotalSalary, AVG(Salary) AS AvgSalary
+FROM Employees
+GROUP BY DepartmentName
+HAVING AVG(Salary) > 65000;
+
+-- 4. Total amount for orders with freight > 50 & least purchases (requires specific TSQL2012 Orders table)
+-- Cannot compute without table details
+
+-- 5. Total sales and unique products per month/year, months with >= 2 products sold
+SELECT YEAR(OrderDate) AS SaleYear, MONTH(OrderDate) AS SaleMonth,
+       SUM(TotalAmount) AS TotalSales, COUNT(DISTINCT ProductID) AS UniqueProducts
+FROM Orders
+GROUP BY YEAR(OrderDate), MONTH(OrderDate)
+HAVING COUNT(DISTINCT ProductID) >= 2;
+
+-- 6. MIN and MAX order quantity per year
+SELECT YEAR(OrderDate) AS OrderYear, MIN(Quantity) AS MinQuantity, MAX(Quantity) AS MaxQuantity
+FROM Orders
+GROUP BY YEAR(OrderDate);
